@@ -95,9 +95,35 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+        This robot will always start at 0 position.
+        The robot will impliment a for of selection sorting
+        the robot will fist have to pick up the item at 0
+        then it should move to the right and compare_item
+        if the item held is greater the robot swap
+        this is done until the smallest is moved to the front and the pro
+        cess repeats.
         """
-        # Fill this out
-        pass
+        # Fill this out 
+        while self.can_move_right():
+            # swich the none item with the swap item
+            self.swap_item()
+            while self.can_move_right():
+                # check if it move to the right
+                # swap if item is bigger
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+            while self.compare_item() != None:
+                #once to the end go to where we place the non value
+                self.move_left()
+            # we put the smallest value to the first position
+            self.swap_item()
+            self.move_right()
+            # move to the +1 start postion and replace with None value until
+            # it is replae with the next smallest value.
+            
+        return
+        
 
 
 if __name__ == "__main__":
